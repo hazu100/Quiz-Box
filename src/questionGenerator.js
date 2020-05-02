@@ -14,10 +14,11 @@ class QuestionGenerator extends Component {
         return (
             <div className="questionBox">
                 <div>{this.props.question}</div>
-                {this.state.userAnswer.map((answer) => (<button
-                    onClick={()=> {this.setAnswer(answer); this.props.selected(answer);}}
-                  >
-                    {answer}</button>))}
+                <div className="answerButtons">{this.state.userAnswer.map((answer) => (<input type="button"
+                    className="btn btn-info answerButton"
+                    onClick={() => { this.setAnswer(answer); this.props.selected(answer); }}
+                    value={answer}/>
+                    ))}</div>
             </div>
         );
     }
