@@ -26,7 +26,8 @@ class QuizApp extends Component {
         }
         this.setState({
             responses: this.state.responses + 1,
-        })
+        });
+
     }
 
     componentDidMount() {
@@ -36,13 +37,14 @@ class QuizApp extends Component {
     render() {
         return (
             <div className='quizBox'>
-                <div className='quizHeader'>QUIZ</div>
+                <div className='quizHeader'><h3>QUIZ</h3></div>
                 {
                     this.state.responses < 5 ?
                         this.state.questions.map((questionObjcet) => (
                             <QuestionGenerator question={questionObjcet.question} answers={questionObjcet.answers}
                                 correctAnswer={questionObjcet.rightAnswer}
                                 selected={(answer) => this.computerScore(answer, questionObjcet.rightAnswer)}
+                                rightAnswerflag = {this.state.rightAnswerflag}
                             />
                         )) : <h1>Your score is : {this.state.score}/5</h1>}
             </div>
