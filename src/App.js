@@ -46,7 +46,8 @@ class QuizApp extends Component {
                                 selected={(answer) => this.computerScore(answer, questionObjcet.rightAnswer)}
                                 rightAnswerflag = {this.state.rightAnswerflag}
                             />
-                        )) : <h1>Your score is : {this.state.score}/5</h1>}
+                        )) : <div><h1>Your score is : {this.state.score}/5</h1>
+                        <input type="button" className="btn btn-success tryAgain" value="Try again" onClick={()=>window.location.reload(false)}/></div>}
             </div>
         );
     }
